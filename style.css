@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    font-size: small;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0f0c29, #0b082b, #24243e);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    background-color: rgb(255, 0, 0, 0.8);
+    font-family: "Playwrite IN", serif;
+    border-radius: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: medium;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 60px rgba(255, 0, 0, 1), 0 0 90px rgba(255, 0, 0, 1);
+
+}
+
+.heart {
+    position: relative;
+    margin-bottom: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: heartbeat 3s infinite;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7), 0 0 60px rgba(255, 0, 0, 0.5), 0 0 90px rgba(255, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 120px rgba(255, 0, 0, 0.7), 0 0 150px rgba(255, 0, 0, 0.5), 0 0 140px rgba(255, 0, 0, 0.3);
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50px;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Orqa fonni qorong'ilashtirish */
+    z-index: -1;
+}
